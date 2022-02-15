@@ -1,17 +1,17 @@
 <template>
-<div class="icon-wrapper">
-      <svg class='icon'  :width="width" :height="height">
-        <use v-bind="{'xlink:href':'/feather-sprite.svg#'+name}"/>
+    <div class="icon-wrapper">
+      <svg class='icon' :width="width" :height="height">
+        <use v-bind="{'xlink:href':'/feather-sprite.svg#' + name}"/>
       </svg>
       <slot></slot>
-</div>
+    </div>
 </template>
-
+    
 <script>
-import feather from 'feather-icons'
-  export default {
-    props: {
-       name: String, 
+export default {
+  name: 'Icon',
+  props: {
+    name: String,
     width: {
       type: [Number, String],
       default: 24
@@ -20,19 +20,10 @@ import feather from 'feather-icons'
       type: [Number, String],
       default: 24
     }
-  },
-  computed: {
-    svg() {
-      return feather.icons[this.name].toSvg({ 
-        class: "icon",
-        width: this.width, // new prop
-        height: this.height // new prop
-      })
-    }
   }
 }
 </script>
-
+    
 <style scoped>
 .icon-wrapper {
   display: inline-flex;
@@ -40,7 +31,6 @@ import feather from 'feather-icons'
   color: rgba(0, 0, 0, 0.4);
   font-size: 1rem;
   font-weight: 600;
-  margin-right: 6px;
 }
 .icon {
   stroke: currentColor;
@@ -48,5 +38,6 @@ import feather from 'feather-icons'
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+  margin-right: 6px;
 }
 </style>
